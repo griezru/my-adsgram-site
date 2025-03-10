@@ -17,6 +17,7 @@ def index():
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
+        # دریافت داده‌ها از درخواست
         data = request.get_json()
         user_id = data['userId']
         game1 = data['game1']
@@ -29,7 +30,7 @@ def predict():
         conn.commit()
         conn.close()
 
-        return jsonify({'success': True})
+        return jsonify({'success': True})  # ارسال پاسخ موفقیت
 
     except Exception as e:
         print(f"Error: {e}")
