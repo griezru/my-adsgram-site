@@ -9,16 +9,8 @@
 <body>
     <div class="container">
         <h1>پیش‌بینی بازی‌های فردا</h1>
-        <div id="register">
-            <h2>ثبت نام</h2>
-            <form id="registerForm">
-                <input type="text" id="username" placeholder="نام کاربری" required>
-                <input type="email" id="email" placeholder="ایمیل" required>
-                <button type="submit">ثبت نام</button>
-            </form>
-        </div>
-
-        <div id="prediction" style="display:none;">
+        
+        <div id="prediction">
             <h2>پیش‌بینی بازی‌ها</h2>
             <form id="predictionForm">
                 <label for="game1">بازی 1: تیم A - تیم B</label>
@@ -29,6 +21,10 @@
 
                 <button type="submit">ثبت پیش‌بینی</button>
             </form>
+        </div>
+
+        <div id="message" style="display:none;">
+            <h2>پیش‌بینی شما ثبت شد!</h2>
         </div>
     </div>
     <script src="script.js"></script>
