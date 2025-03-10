@@ -3,28 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>گردونه شانس</title>
+    <title>پیش‌بینی بازی‌ها</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>گردونه شانس</h1>
-        <div class="wheel-container">
-            <div id="wheel" class="wheel">
-                <div class="number">1</div>
-                <div class="number">2</div>
-                <div class="number">3</div>
-                <div class="number">4</div>
-                <div class="number">5</div>
-                <div class="number">6</div>
-                <div class="number">7</div>
-                <div class="number">8</div>
-                <div class="number">9</div>
-                <div class="number">10</div>
-            </div>
+        <h1>پیش‌بینی بازی‌های فردا</h1>
+        <div id="register">
+            <h2>ثبت نام</h2>
+            <form id="registerForm">
+                <input type="text" id="username" placeholder="نام کاربری" required>
+                <input type="email" id="email" placeholder="ایمیل" required>
+                <button type="submit">ثبت نام</button>
+            </form>
         </div>
-        <button id="spinButton">چرخاندن گردونه</button>
-        <div id="result"></div>
+
+        <div id="prediction" style="display:none;">
+            <h2>پیش‌بینی بازی‌ها</h2>
+            <form id="predictionForm">
+                <label for="game1">بازی 1: تیم A - تیم B</label>
+                <input type="text" id="game1" placeholder="پیش‌بینی نتیجه" required>
+
+                <label for="game2">بازی 2: تیم C - تیم D</label>
+                <input type="text" id="game2" placeholder="پیش‌بینی نتیجه" required>
+
+                <button type="submit">ثبت پیش‌بینی</button>
+            </form>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
