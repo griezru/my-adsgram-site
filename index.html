@@ -28,3 +28,82 @@
     <script src="script.js"></script>
 </body>
 </html>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #4CAF50;
+}
+
+.wheel-container {
+    margin: 20px auto;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 5px solid #333;
+    position: relative;
+    overflow: hidden;
+}
+
+#wheel {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: transform 3s ease-out;
+}
+
+.number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33.33%;
+    height: 33.33%;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+// انتخاب عناصر
+const wheel = document.getElementById('wheel');
+const spinButton = document.getElementById('spinButton');
+
+// این تابع گردونه را می‌چرخاند
+function spinWheel() {
+    // تولید یک عدد تصادفی از 1 تا 10
+    const randomDegree = Math.floor(Math.random() * 10) * 36; // هر بخش 36 درجه است
+    const randomRotation = randomDegree + 3600; // چرخش بیشتر برای اثر بیشتر
+
+    // چرخاندن گردونه
+    wheel.style.transform = `rotate(${randomRotation}deg)`;
+}
+
+// اضافه کردن event listener به دکمه
+spinButton.addEventListener('click', spinWheel);
