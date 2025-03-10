@@ -4,29 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>پیش‌بینی بازی‌ها</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>پیش‌بینی بازی‌های فردا</h1>
-        
-        <div id="prediction">
-            <h2>پیش‌بینی بازی‌ها</h2>
-            <form id="predictionForm">
-                <label for="game1">بازی 1: تیم A - تیم B</label>
-                <input type="text" id="game1" placeholder="پیش‌بینی نتیجه" required>
+    <h1>پیش‌بینی بازی‌های فردا</h1>
+    <form id="predictionForm">
+        <label for="game1">نتیجه بازی اول:</label>
+        <input type="text" id="game1" required>
+        <br>
+        <label for="game2">نتیجه بازی دوم:</label>
+        <input type="text" id="game2" required>
+        <br>
+        <button type="submit">ثبت پیش‌بینی</button>
+    </form>
 
-                <label for="game2">بازی 2: تیم C - تیم D</label>
-                <input type="text" id="game2" placeholder="پیش‌بینی نتیجه" required>
-
-                <button type="submit">ثبت پیش‌بینی</button>
-            </form>
-        </div>
-
-        <div id="message" style="display:none;">
-            <h2>پیش‌بینی شما ثبت شد!</h2>
-        </div>
+    <div id="message" style="display:none; color: green; margin-top: 20px;">
+        پیش‌بینی شما با موفقیت ثبت شد!
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
