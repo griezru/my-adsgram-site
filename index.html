@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وب‌سایت گیم و ثبت امتیاز</title>
+    <title>گردونه شانس</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>خوش آمدید به بازی گیم!</h1>
-        <form id="scoreForm">
-            <label for="username">نام کاربری:</label>
-            <input type="text" id="username" required placeholder="نام خود را وارد کنید">
-
-            <label for="score">امتیاز:</label>
-            <input type="number" id="score" required placeholder="امتیاز خود را وارد کنید" min="0">
-
-            <button type="submit">ثبت امتیاز</button>
-        </form>
-
-        <h2>برترین کاربران</h2>
-        <ul id="leaderboard">
-            <!-- لیست برترین‌ها اینجا نمایش داده می‌شود -->
-        </ul>
+        <h1>گردونه شانس</h1>
+        <div class="wheel-container">
+            <div id="wheel" class="wheel">
+                <div class="number">1</div>
+                <div class="number">2</div>
+                <div class="number">3</div>
+                <div class="number">4</div>
+                <div class="number">5</div>
+                <div class="number">6</div>
+                <div class="number">7</div>
+                <div class="number">8</div>
+                <div class="number">9</div>
+                <div class="number">10</div>
+            </div>
+        </div>
+        <button id="spinButton">چرخاندن گردونه</button>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
