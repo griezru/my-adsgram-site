@@ -1,6 +1,5 @@
 import sqlite3
 
-# ایجاد پایگاه داده و جداول
 def create_db():
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
