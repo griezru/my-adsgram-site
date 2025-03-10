@@ -1,23 +1,46 @@
-// انتخاب عناصر
-const wheel = document.getElementById('wheel');
-const spinButton = document.getElementById('spinButton');
-const resultDiv = document.getElementById('result');
+// ثبت نام کاربر و ذخیره اطلاعات
+document.getElementById("registerForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-// این تابع گردونه را می‌چرخاند
-function spinWheel() {
-    // تولید یک عدد تصادفی از 1 تا 10
-    const randomDegree = Math.floor(Math.random() * 10) * 36; // هر بخش 36 درجه است
-    const randomRotation = randomDegree + 3600; // چرخش بیشتر برای اثر بیشتر
+    const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
 
-    // چرخاندن گردونه
-    wheel.style.transform = `rotate(${randomRotation}deg)`;
+    // ارسال درخواست به سرور برای ثبت‌نام
+    fetch('/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, email })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            document.getElementById("register").style.display = "none";
+            document.getElementById("prediction").style.display = "block";
+        }
+    });
+});
 
-    // نمایش نتیجه
-    setTimeout(() => {
-        const winningNumber = (randomDegree / 36) + 1;
-        resultDiv.innerHTML = `عدد برنده: ${winningNumber}`;
-    }, 3500); // بعد از 3.5 ثانیه نتیجه نمایش داده می‌شود
-}
+// ارسال پیش‌بینی‌ها
+document.getElementById("predictionForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-// اضافه کردن event listener به دکمه
-spinButton.addEventListener('click', spinWheel);
+    const game1 = document.getElementById("game1").value;
+    const game2 = document.getElementById("game2").value;
+
+    // ارسال پیش‌بینی‌ها به سرور
+    fetch('/predict', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ game1, game2 })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("پیش‌بینی شما ثبت شد!");
+        }
+    });
+});
