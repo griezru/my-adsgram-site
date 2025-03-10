@@ -5,13 +5,9 @@ def create_db():
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
 
-    cursor.execute('''CREATE TABLE IF NOT EXISTS users (
-                        id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        username TEXT NOT NULL,
-                        email TEXT NOT NULL)''')
-
     cursor.execute('''CREATE TABLE IF NOT EXISTS predictions (
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        user_id INTEGER NOT NULL,
                         game1 TEXT NOT NULL,
                         game2 TEXT NOT NULL)''')
 
