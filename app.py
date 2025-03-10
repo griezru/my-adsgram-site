@@ -16,18 +16,24 @@ def index():
 # ثبت پیش‌بینی
 @app.route('/predict', methods=['POST'])
 def predict():
-    data = request.get_json()
-    user_id = data['userId']
-    game1 = data['game1']
-    game2 = data['game2']
+    try:
+        data = request.get_json()
+        user_id = data['userId']
+        game1 = data['game1']
+        game2 = data['game2']
 
-    # ذخیره پیش‌بینی‌ها در پایگاه داده
-    conn = get_db()
-    cursor = conn.cursor()
-    cursor.execute('INSERT INTO predictions (user_id, game1, game2) VALUES (?, ?, ?)', (user_id, game1, game2))
-    conn.commit()
+        # ذخیره پیش‌بینی‌ها در پایگاه داده
+        conn = get_db()
+        cursor = conn.cursor()
+        cursor.execute('INSERT INTO predictions (user_id, game1, game2) VALUES (?, ?, ?)', (user_id, game1, game2))
+        conn.commit()
+        conn.close()
 
-    return jsonify({'success': True})
+        return jsonify({'success': True})
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({'success': False, 'message': 'خطا در ثبت پیش‌بینی'})
 
 if __name__ == '__main__':
     app.run(debug=True)
